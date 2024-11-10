@@ -75,7 +75,7 @@ end
 --
 function net.IncomingSafeInternal(name, func, len, ply, keepOnError)
 	
-	local ok, errorMessage = xpcall( func, debug.traceback )
+	local ok, errorMessage = xpcall( func, debug.traceback, len, ply )
 	if ( !ok ) then
 		if ( !keepOnError ) then
 			net.Receivers[ name ] = nil
